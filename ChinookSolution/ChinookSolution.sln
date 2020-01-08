@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{7238CF5A-48AA-43F1-A3FB-F7F3ADFAC672}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChinookSystems.Data", "ChinookSystems.Data\ChinookSystems.Data.csproj", "{DF0E890E-C063-4267-B9E0-7478427D8A0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChinookSystem.Data", "ChinookSystems.Data\ChinookSystem.Data.csproj", "{DF0E890E-C063-4267-B9E0-7478427D8A0F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChinookSystem", "ChinookSystem\ChinookSystem.csproj", "{830E4640-936E-421A-9F2C-2D307E82743D}"
 EndProject

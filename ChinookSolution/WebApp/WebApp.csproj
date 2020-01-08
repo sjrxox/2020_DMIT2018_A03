@@ -223,6 +223,7 @@
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="WebConnectionStrings.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
@@ -396,6 +397,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChinookSystems.Data\ChinookSystem.Data.csproj">
+      <Project>{df0e890e-c063-4267-b9e0-7478427d8a0f}</Project>
+      <Name>ChinookSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChinookSystem\ChinookSystem.csproj">
+      <Project>{830e4640-936e-421a-9f2c-2d307e82743d}</Project>
+      <Name>ChinookSystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
