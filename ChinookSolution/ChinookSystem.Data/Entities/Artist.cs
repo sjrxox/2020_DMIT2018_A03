@@ -12,7 +12,7 @@ using System.ComponentModel.DataAnnotations;
 namespace ChinookSystem.Data.Entities
 {
     // Identify the sql entity (table) this class maps
-    [Table("Artist")]
+    [Table("Artists")]
     public class Artist
     {
         // Fully implemented properties will be used for nullable strings
