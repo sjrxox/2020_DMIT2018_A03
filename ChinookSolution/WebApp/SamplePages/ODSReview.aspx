@@ -37,7 +37,7 @@
             <asp:TemplateField HeaderText="Artist">
                 <ItemTemplate>
                     <asp:DropDownList ID="ArtistList" runat="server" DataSourceID="ArtistListODS" Enabled="false" DataTextField="Name" DataValueField="ArtistId" AppendDataBoundItems="true"
-                         
+                         Width="200px"
                         selectedvalue='<%# Eval("ArtistId") %>'>
                         <asp:ListItem Value="">Select.....</asp:ListItem>
                         <asp:ListItem Value="">None</asp:ListItem>
