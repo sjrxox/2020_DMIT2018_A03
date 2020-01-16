@@ -71,7 +71,7 @@
                         </LoggedInTemplate>
                     </asp:LoginView>
                      <asp:Menu ID="navMenu" runat="server" 
-                    BackColor="#000000" BorderColor="Red"
+                    BackColor="#2222222" BorderColor="Red"
                     StaticMenuItemStyle-ForeColor="#999999" 
                     StaticMenuItemStyle-VerticalPadding="15px"
                     StaticMenuItemStyle-HorizontalPadding="10px"
@@ -83,6 +83,7 @@
 
                         <asp:MenuItem Text="DDMenu" Value="DDMenu">
                             <asp:MenuItem Text="ODS Review" NavigateUrl="~/SamplePages/ODSReview.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="ODS Crud" NavigateUrl="~/SamplePages/ListViewODSCRUD.aspx"></asp:MenuItem>
                            
 
                         </asp:MenuItem>
