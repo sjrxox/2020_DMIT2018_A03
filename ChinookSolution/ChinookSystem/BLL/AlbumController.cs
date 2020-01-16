@@ -15,8 +15,14 @@ namespace ChinookSystem.BLL
     [DataObject]
     public class AlbumController
     {
-        #region
-        [DataObjectMethod(DataObjectMethodType.Select,false)]
+        // this List<T> will hold a series of error message strings
+        // this List<T> will be used by MessageUserControl via the
+        //  BusinessRuleException
+        private List<string> reasons = new List<string>();
+
+
+        #region Queries
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<Album> Album_List()
         {
             using (var context = new ChinookContext())
@@ -37,7 +43,7 @@ namespace ChinookSystem.BLL
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<Album> Album_FindByArtist(int artistid)
         {
-            using(var context = new ChinookContext())
+            using (var context = new ChinookContext())
             {
                 //simple example of a record set lookup via the foreign
                 //   on a DbSet<T> using Linq
@@ -61,17 +67,55 @@ namespace ChinookSystem.BLL
                 return results.ToList();
             }
         }
-        #endregion
+        #endregion Queries 
 
         #region Add, Update, Delete
+        [DataObjectMethod(DataObjectMethodType.Insert,false)]
         public int Album_Add(Album item)
         {
+            using (var context = new ChinookContext())
+            {
+                // additional logic
+                if (CheckReleaseYear(item))
+                {
+                    item.ReleaseLabel = string.IsNullOrEmpty(item.ReleaseLabel) ?
+                        null : item.ReleaseLabel;
 
+                    context.Albums.Add(item);  // staging
+                    context.SaveChanges();     // actual commit to the database
+                    return item.AlbumId;       // the instance now has the identity key value
+                }
+                else
+                {
+                    throw new BusinessRuleException("Validation error", reasons);
+                }
+
+            }
         }
         #endregion
 
         #region Support Methods
-
+        private bool CheckReleaseYear(Album item)
+        {
+            bool isValid = true;
+            int releaseyear;
+            if (string.IsNullOrEmpty(item.ReleaseYear.ToString()))
+            {
+                isValid = false;
+                reasons.Add("Release year is required");
+            }
+            else if (!int.TryParse(item.ReleaseYear.ToString(), out releaseyear))
+            {
+                isValid = false;
+                reasons.Add("Release year is not a valid year number (yyyy)");
+            }
+            else if (releaseyear < 1950 || releaseyear > DateTime.Today.Year)
+            {
+                isValid = false;
+                reasons.Add(string.Format("Release year {0} is invalid. Year must be between 1950 and today", releaseyear));
+            }
+            return isValid;
+        }
         #endregion
     }
 }
