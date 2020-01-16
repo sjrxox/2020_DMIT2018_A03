@@ -92,6 +92,53 @@ namespace ChinookSystem.BLL
 
             }
         }
+
+
+        [DataObjectMethod(DataObjectMethodType.Update, false)]
+        public int Album_Update(Album item)
+        {
+            using (var context = new ChinookContext())
+            {
+                // additional logic
+                if (CheckReleaseYear(item))
+                {
+                    item.ReleaseLabel = string.IsNullOrEmpty(item.ReleaseLabel) ?
+                        null : item.ReleaseLabel;
+
+                    context.Entry(item).State = System.Data.Entity.EntityState.Modified;  // staging
+                    return context.SaveChanges();     // actual commit to the database and return rows affected
+
+                }
+                else
+                {
+                    throw new BusinessRuleException("Validation error", reasons);
+                }
+
+            }
+        }
+
+        // used by the ODS (does the actual work)
+        [DataObjectMethod(DataObjectMethodType.Delete,false)]
+        public int Album_Delete(Album item)
+        {
+            return Album_Delete(item.AlbumId);
+        }
+
+
+        // delete is a physical delete
+        public int Album_Delete(int albumid)
+        {
+            using (var context = new ChinookContext())
+            {
+                var existing = context.Albums.Find(albumid);
+                if (existing == null)
+                {
+                    throw new Exception("Record already has been removed. No additional removal done");
+                }
+                context.Albums.Remove(existing);
+                return context.SaveChanges();
+            }
+        }
         #endregion
 
         #region Support Methods
