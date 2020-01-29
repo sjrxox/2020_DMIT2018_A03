@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using ChinookSystem.Data.Entities;
 using ChinookSystem.DAL;
 using System.ComponentModel;
+using ChinookSystem.Data.POCOs;
 #endregion
 
 namespace ChinookSystem.BLL
@@ -68,6 +69,28 @@ namespace ChinookSystem.BLL
             }
         }
         #endregion Queries 
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<AlbumArtists> Albums_ListAlbumsWithArtist()
+        {
+            using (var context = new ChinookContext())
+            {
+                // query
+                // within your application you are using Linq o Entity
+                // therefore: you will need to add the context instance
+                // to your data source
+                var queryResults = from x in context.Albums
+                                   orderby x.ReleaseYear descending, x.Title
+                                   select new AlbumArtists
+                                   {
+                                       AlbumTitle = x.Title,
+                                       Year = x.ReleaseYear,
+                                       ArtistName = x.Artist.Name
+
+                                   };
+                return queryResults.ToList();
+            }
+        }
 
         #region Add, Update, Delete
         [DataObjectMethod(DataObjectMethodType.Insert,false)]
