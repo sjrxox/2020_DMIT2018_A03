@@ -183,6 +183,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Account\Web.config" />
+    <Content Include="SamplePages\AlbumsWithArtist.aspx" />
+    <Content Include="SamplePages\ListViewODSCRUD.aspx" />
+    <Content Include="SamplePages\ODSReview.aspx" />
+    <Content Include="SamplePages\RepeaterDemo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -191,12 +195,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="packages.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="SamplePages\AlbumsWithArtist.aspx" />
-    <Content Include="SamplePages\ListViewODSCRUD.aspx" />
-    <Content Include="SamplePages\ODSReview.aspx" />
-    <Content Include="SamplePages\RepeaterDemo.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -430,6 +429,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Site.Mobile.Master" />
