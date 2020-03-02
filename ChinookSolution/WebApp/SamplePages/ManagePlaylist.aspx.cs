@@ -19,7 +19,7 @@ namespace WebApp.SamplePages
         {
             TracksSelectionList.DataSource = null;
         }
-
+        
         protected void CheckForException(object sender, ObjectDataSourceStatusEventArgs e)
         {
             MessageUserControl.HandleDataBoundException(e);
@@ -90,6 +90,9 @@ namespace WebApp.SamplePages
             //code to go here
             
         }
+
+        // something about selected index changed on the mediatypeddl etc
+        // code is in the class example A03
 
     }
 }
