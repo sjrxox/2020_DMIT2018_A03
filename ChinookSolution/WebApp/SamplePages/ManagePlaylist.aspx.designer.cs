@@ -67,15 +67,6 @@ namespace WebApp.SamplePages {
         protected global::System.Web.UI.WebControls.DropDownList MediaTypeDDL;
         
         /// <summary>
-        /// MediaTypeFetch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MediaTypeFetch;
-        
-        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -245,14 +236,5 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource GenreDDLODS;
-        
-        /// <summary>
-        /// TrackSelectionListODS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource TrackSelectionListODS;
     }
 }
