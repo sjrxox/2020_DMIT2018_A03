@@ -1,4 +1,7 @@
-﻿<%@ Page Title="OLTP Playlist" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePlaylist.aspx.cs" Inherits="Jan2018DemoWebsite.SamplePages.ManagePlaylist" %>
+﻿<%@ Page Title="OLTP Playlist" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePlaylist.aspx.cs" Inherits="WebApp.SamplePages.ManagePlaylist" %>
+
+<%@ Register Src="~/UserControl/MessageUserControl.ascx" TagPrefix="uc1" TagName="MessageUserControl" %>
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -6,6 +9,8 @@
     <h1>Manage Playlists (UI/UX TRX Sample)</h1>
 </div>
     <%--Add MessageUserControl--%>
+    <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
+
 
     <div class="row">
     <div class="col-sm-2">
